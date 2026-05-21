@@ -7,6 +7,7 @@ ai_system/data/logs/
 
 # Chroma embeddings database
 ai_system/data/embeddings/chroma/
+data/embeddings/chroma
 
 # Model checkpoints
 ai_system/models/checkpoints/
