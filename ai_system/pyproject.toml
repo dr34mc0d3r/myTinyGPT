@@ -1,0 +1,29 @@
+[project]
+name = "mytinygpt"
+version = "0.1.0"
+description = "A tiny custom transformer LLM with Agentic Hybrid Retrieval"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "torch",
+    "sentencepiece",
+    "sentence-transformers",
+    "chromadb",
+    "rank-bm25",
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "structlog",
+    "pyyaml",
+    "tensorboard",
+    "tqdm",
+    "numpy",
+]
+
+[tool.setuptools]
+packages = ["app"]
+package-dir = {"" = "."}
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

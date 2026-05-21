@@ -1,0 +1,55 @@
+# Glossary of AI Engineering Terms
+
+This document provides an alphabetical reference for key terms used in the development of `myTinyGPT` and modern AI systems.
+
+| Term | Definition | Use | Example |
+| :--- | :--- | :--- | :--- |
+| **Agent** | An autonomous system that reasons over a query, selects tools, and performs iterative retrieval. | Orchestrating complex multi-step tasks. | `AgentController` calling a calculator tool after a retrieval step. |
+| **Attention** | Mechanism allowing the model to focus on specific relevant tokens in the input context. | Capturing long-range dependencies in language. | Query (Q) attending to Key (K) to weight Value (V) in transformer blocks. |
+| **Batch Size** | Number of training samples processed before the model updates its weights. | Balancing memory usage and training speed. | `batch_size: 32` in `default_config.yaml`. |
+| **BM25** | A ranking function used to estimate the relevance of documents to a given search query. | Sparse retrieval (keyword matching). | `rank-bm25` used for technical keyword retrieval. |
+| **Checkpointing** | Saving the model's state (parameters, optimizer) to disk during training. | Resuming training or preparing for inference. | Saving `ckpt_best.pt` after validation evaluation. |
+| **Context Window** | The maximum number of tokens the model can process in a single sequence. | Defining model capacity for prompts and memory. | 256 tokens in `myTinyGPT` configuration. |
+| **Cosine Decay** | A learning rate scheduling policy that gradually decreases the LR following a cosine curve. | Fine-grained model convergence. | `trainer.py` implementation of LR schedule. |
+| **Cross-Encoder** | A model that processes a query and document together to predict a relevance score. | Reranking candidate results for high precision. | `ms-marco-MiniLM-L-6-v2` reranker. |
+| **Dense Retrieval** | Retrieving documents based on semantic similarity of vector embeddings. | Finding "concept" matches. | ChromaDB search using `sentence-transformers`. |
+| **Embedding** | A mapping of discrete objects (tokens) into continuous vectors. | Representing meaning mathematically. | `token_embeddings` layer in `model.py`. |
+| **Fine-Tuning** | Further training a pre-trained model on specialized data. | Improving performance on a domain-specific task. | Training `myTinyGPT` on financial reports. |
+| **GELU** | Gaussian Error Linear Unit; an activation function that weights inputs by their percentile. | Non-linear transformation in feed-forward layers. | Activation in the transformer MLP blocks. |
+| **Gradient Clipping** | Rescaling gradients if their norm exceeds a threshold. | Preventing exploding gradients. | `torch.nn.utils.clip_grad_norm_`. |
+| **Hallucination** | When a model generates information that is confident but factually incorrect. | Debugging LLM reliability. | LLM inventing a non-existent technical fact. |
+| **Hybrid Retrieval** | Combining sparse and dense retrieval scores for a final ranking. | Merging keyword and semantic search strengths. | `RetrievalManager` weighted fusion. |
+| **Inference** | The process of using a trained model to make predictions or generate text. | Generating answers to user queries. | Running `Generator.generate()` on a user prompt. |
+| **Input Tokens** | The number of tokens sent to the model as part of the prompt. | Calculating usage costs and quota limits. | Prompt length calculation before sending to API. |
+| **Latency** | The time delay between sending a request and receiving a response. | Measuring performance and user experience. | Time to first token (TTFT) measurement. |
+| **Layer Normalization** | Normalizing inputs across the features of each layer. | Stabilizing training and accelerating convergence. | `LayerNorm` applied before transformer blocks. |
+| **Loss Function** | Mathematical formula calculating the difference between predicted and actual output. | Guiding the optimizer to minimize errors. | `CrossEntropyLoss` for next-token prediction. |
+| **MCP (Model Context Protocol)** | A standardized protocol for connecting AI models to external data and tools. | Enabling seamless tool and context integration. | Standardizing agent-to-tool communication. |
+| **Model** | The trained neural network structure and its weights. | Core component of the AI system. | The `TransformerModel` instance in `myTinyGPT`. |
+| **MoE (Mixture of Experts)** | An architecture using multiple sub-networks ("experts") for different types of inputs. | Scaling model capacity efficiently. | Activating only specific layers during inference. |
+| **Multimodal** | A model capable of processing different types of data (text, images, audio). | Expanding input/output versatility. | Adding support for image input analysis. |
+| **Multi-Head Attention** | Running multiple attention mechanisms in parallel. | Capturing different features of input data. | 4 attention heads in `myTinyGPT`. |
+| **Output Tokens** | The number of tokens generated by the model in its response. | Calculating usage costs and quota limits. | Counting tokens in the model response. |
+| **Overfitting** | Model memorizes training data but fails to generalize to new data. | Diagnosing poor validation performance. | High train accuracy, low validation accuracy. |
+| **Parameters** | The internal variables (weights) learned by the model during training. | Defining model capacity and size. | 3.2M parameters in `myTinyGPT`. |
+| **Positional Embedding** | Adding vector information about the order of tokens in a sequence. | Teaching the transformer about token positioning. | `position_embeddings` added to token inputs. |
+| **Prompt Engineering** | The art of crafting inputs to get optimal model performance. | Optimizing output quality. | Refining system prompts in `templates.py`. |
+| **Quantization** | Reducing the precision of model weights (e.g., from FP32 to INT8). | Reducing memory footprint and improving speed. | 4-bit model weight loading. |
+| **Quota** | A limit placed on usage (tokens/requests) over a set period. | Managing resource consumption and costs. | Daily limit on API request volume. |
+| **RAG (Retrieval-Augmented Generation)** | Augmenting LLM responses with retrieved external data. | Improving factual accuracy and grounding. | `RetrievalManager` providing context to LLM. |
+| **Rate Limit** | A limit on how often a request can be sent to an API endpoint. | Protecting system stability and preventing abuse. | 10 requests per minute limit. |
+| **Residual Connection** | Adding the input of a layer to its output (shortcut connection). | Mitigating vanishing gradient problems in deep models. | `x + attention(x)` in transformer block. |
+| **RLHF** | Reinforcement Learning from Human Feedback. | Aligning model behavior with human preferences. | Training the model using human-rated outputs. |
+| **SentencePiece** | Unsupervised text tokenizer/detokenizer. | Converting text into numerical IDs. | `tokenizer.model` training. |
+| **Streaming** | Generating output token by token in real-time. | Improving user-perceived responsiveness. | `StreamingResponse` in FastAPI. |
+| **System Prompt** | The initial instructions given to an LLM to guide its behavior. | Defining the agent's persona and tasks. | Instructions in `app/prompts/templates.py`. |
+| **Temperature** | Parameter controlling the "creativity" or randomness of generation. | Tuning output diversity. | `temp=0.7` in `inference.py`. |
+| **Token** | The basic unit of text/code processed by the model. | Measuring input/output length. | "hello" -> 1 token. |
+| **Tokens Per Second (TPS)** | A metric for generation speed. | Measuring inference performance. | Achieving 50 TPS. |
+| **Training** | The process of updating model weights based on data. | Creating the core model behavior. | The `trainer.py` loop. |
+| **Transformer** | Architecture relying solely on attention mechanisms. | Sequence modeling (language, signals). | The `TransformerModel` in `model.py`. |
+| **Underfitting** | Model is too simple to capture patterns in the data. | Diagnosing poor training performance. | High train and validation loss. |
+| **Vector Database** | Database optimized for storing and querying high-dimensional vectors. | Fast retrieval of large datasets. | ChromaDB collection. |
+| **VRAM** | Video Random Access Memory; dedicated memory on a GPU. | Storing model weights and activations for inference/training. | 8GB VRAM requirement for larger models. |
+| **Warmup** | Increasing LR slowly at the start of training. | Stabilizing training initially. | First 2000 steps of training. |
+| **Weight Tying** | Sharing weights between input embedding and output projection. | Reducing parameter count. | Shared embedding/output layer in `myTinyGPT`. |

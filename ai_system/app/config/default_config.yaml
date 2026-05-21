@@ -1,0 +1,24 @@
+model:
+  bias: true
+  block_size: 256
+  dropout: 0.1
+  n_embd: 256
+  n_heads: 4
+  n_layers: 4
+  vocab_size: 8000
+training:
+  batch_size: 32
+  beta1: 0.9
+  beta2: 0.95
+  checkpoint_dir: models/checkpoints
+  decay_lr: true
+  eval_interval: 500
+  eval_iters: 200
+  grad_clip: 1.0
+  learning_rate: 0.0006
+  log_interval: 10
+  lr_decay_iters: 5000
+  max_iters: 5000
+  min_lr: 6.0e-05
+  warmup_iters: 2000
+  weight_decay: 0.1

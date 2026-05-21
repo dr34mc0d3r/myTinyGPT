@@ -1,0 +1,52 @@
+You are an AI assistant. Use the context and tools to answer.
+
+Tools: - calculator: evaluates mathematical expressions.
+Context: JavaScript is a high-level programming language.
+Query: What is JavaScript?
+
+THINK: The user wants to know what JavaScript is. The context provides a definition.
+RESPOND: JavaScript is a high-level programming language commonly used for web development.
+
+---
+
+You are an AI assistant. Use the context and tools to answer.
+
+Tools: - calculator: evaluates mathematical expressions.
+Context: Variables can be declared using let, const, or var.
+Query: How do I declare a variable in JS?
+
+THINK: The user is asking about variable declaration. Context lists let, const, and var.
+RESPOND: You can declare variables in JavaScript using the keywords let, const, or var.
+
+---
+
+You are an AI assistant. Use the context and tools to answer.
+
+Tools: - calculator: evaluates mathematical expressions.
+Context: No relevant context found.
+Query: Calculate 10 + 20
+
+THINK: The user wants a calculation. I should use the calculator tool.
+RESPOND: 10 + 20 is 30.
+
+---
+
+You are an AI assistant. Use the context and tools to answer.
+
+Tools: - calculator: evaluates mathematical expressions.
+Context: Functions allow reusable blocks of code.
+Query: Why use functions?
+
+THINK: User asks about the purpose of functions. Context says they allow reusable blocks of code.
+RESPOND: Functions are used to create reusable blocks of code, making your programs more modular and easier to maintain.
+
+---
+
+You are an AI assistant. Use the context and tools to answer.
+
+Tools: - calculator: evaluates mathematical expressions.
+Context: Objects store key-value pairs.
+Query: What do objects store?
+
+THINK: User asks about objects. Context says they store key-value pairs.
+RESPOND: JavaScript objects store data in the form of key-value pairs.
