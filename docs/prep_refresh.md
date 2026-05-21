@@ -24,6 +24,7 @@ From the repository root, delete the current retrieval and model artifacts:
 ```bash
 cd /home/chris/DEV/myTinyGPT
 rm -rf ai_system/data/embeddings/chroma
+rm -rf data/embeddings/chroma/*
 rm -rf ai_system/models/checkpoints/*
 rm -f ai_system/models/tokenizer/tokenizer.model
 rm -f ai_system/models/tokenizer/tokenizer.vocab
